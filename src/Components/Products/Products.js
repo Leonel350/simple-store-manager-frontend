@@ -1,4 +1,4 @@
-import { Flex, Text, Box, Container, Button, Icon } from "@chakra-ui/react";
+import { Flex, Box, Container, Button, Icon } from "@chakra-ui/react";
 import {
    Table,
    Thead,
@@ -6,10 +6,9 @@ import {
    Tr,
    Th,
    Td,
-   TableCaption,
    TableContainer,
 } from "@chakra-ui/react";
-import { MdEdit, MdDelete, MdVisibility } from "react-icons/md";
+import { MdEdit, MdVisibility } from "react-icons/md";
 import { useState, useEffect } from "react";
 import API from "../../API";
 import "../../i18n/config";
@@ -55,7 +54,7 @@ const Products = () => {
                            <Th>{t("provider")}</Th>
                            <Th isNumeric>{t("stock")}</Th>
                            <Th isNumeric>{t("price")}</Th>
-                           <Th>{t("actions")}</Th>
+                           <Th isNumeric>{t("actions")}</Th>
                         </Tr>
                      </Thead>
                      <Tbody>

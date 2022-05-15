@@ -37,7 +37,7 @@ const Menu = () => {
                      <Text fontSize="xl">{t("products")}</Text>
                   </Button>
                </Link>
-               <Link to="products">
+               <Link to="providers">
                   <Button
                      size="lg"
                      leftIcon={<Icon as={FcContacts} />}

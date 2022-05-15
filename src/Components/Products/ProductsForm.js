@@ -190,7 +190,7 @@ const ProductsForm = (props) => {
                      >
                         {t("save")}
                      </Button>
-                     <DeleteDialog id={id} />
+                     {props.type === "edit" && (<DeleteDialog id={id} />)}
                   </Box>
                </Box>
             </Flex>

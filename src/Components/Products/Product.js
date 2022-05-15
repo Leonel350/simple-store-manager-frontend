@@ -54,10 +54,12 @@ const Product = (props) => {
                   <b>{product.category}</b>
                </Text>
                <Text as="u" fontSize="1xl" color="blue.900">
-                  {" "}
-                  {t("provider")}
-                  {": "}
-                  <b>{product.provider?.name}</b>
+                  <Link to={`/providers/${product.provider?._id}`}>
+                     {" "}
+                     {t("provider")}
+                     {": "}
+                     <b>{product.provider?.name}</b>
+                  </Link>
                </Text>
                {product.barCode && (
                   <Text fontSize="1xl" color="blue.900">
@@ -69,7 +71,10 @@ const Product = (props) => {
                )}
             </Box>
             <Box>
-               <Link to={`/products/${id}/edit`}> <Icon as={MdEdit}/></Link>
+               <Link to={`/products/${id}/edit`}>
+                  {" "}
+                  <Icon as={MdEdit} />
+               </Link>
             </Box>
          </Flex>
       </Container>

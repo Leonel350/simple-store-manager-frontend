@@ -41,5 +41,10 @@
     "barCode": "Código de Barras",
     "delete": "Eliminar",
     "deleteProductMessage": "¿Está seguro que desea eliminar el producto?",
-    "cancel": "Cancelar"
+    "deleteProviderMessage": "¿Está seguro que desea eliminar el proveedor?",
+    "cancel": "Cancelar",
+    "address": "Dirección",
+    "email": "Correo",
+    "phone":"Teléfono",
+    "notes": "Notas"
 }
