@@ -1,36 +1,45 @@
 {
   "name": "simple-store-manager-frontend",
+  "license": "MIT",
+  "author": "Leonel Mederdrut",
+  "description": "Simple Store Manager Frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@chakra-ui/react": "^1.8.8",
+    "@chakra-ui/react": "^2.0.2",
     "@choc-ui/chakra-autocomplete": "^4.22.0",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
-    "@testing-library/user-event": "^13.5.0",
-    "chakra-react-select": "^3.3.6",
+    "@testing-library/user-event": "^14.2.0",
+    "chakra-react-select": "^4.0.0",
+    "electron-is-dev": "^2.0.0",
+    "electron-squirrel-startup": "^1.0.0",
     "framer-motion": "^6.3.3",
-    "i18next": "^21.8.2",
+    "i18next": "^21.8.3",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-i18next": "^11.16.9",
     "react-icons": "^4.3.1",
-    "react-localization": "^1.0.19",
-    "react-open-weather": "^1.2.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
   "main": "public/electron.js",
+  "homepage": ".",
   "scripts": {
+    "react": "react-scripts start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "concurrently -k \"BROWSER=none npm start\" \"npm:electron\"",
-    "electron": "wait-on tcp:3000 && electron ."
+    "electron": "wait-on tcp:3000 && electron .",
+    "package": "electron-forge package",
+    "make-mac": "react-scripts build && electron-forge make --platform darwin",
+    "make-linux": "react-scripts build && electron-forge make --platform linux",
+    "make": "electron-forge make"
   },
   "eslintConfig": {
     "extends": [
@@ -51,9 +60,41 @@
     ]
   },
   "devDependencies": {
-    "concurrently": "^7.1.0",
-    "electron": "^18.2.3",
-    "electron-is-dev": "^2.0.0",
+    "@electron-forge/cli": "^6.0.0-beta.63",
+    "@electron-forge/maker-deb": "^6.0.0-beta.63",
+    "@electron-forge/maker-dmg": "^6.0.0-beta.63",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.63",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
+    "@electron-forge/maker-zip": "^6.0.0-beta.63",
+    "concurrently": "^7.2.0",
+    "electron": "^18.2.4",
     "wait-on": "^6.0.1"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "simple_store_manager_frontend"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
   }
 }
