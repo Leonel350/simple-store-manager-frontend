@@ -1,4 +1,3 @@
-import "./server/build/server";
 import * as React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import { extendTheme, ChakraProvider } from "@chakra-ui/react";
